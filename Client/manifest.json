@@ -1,0 +1,23 @@
+
+{
+  "manifest_version": 2,
+  "name": "extension",
+  "version": "1.0",
+  "description": "My first Chrome extension.",
+  "browser_action": {
+      "default_icon": "cat.png",
+      "default_popup": "popup.html"
+  },
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+   "permissions": ["https://akerutis.com/*", "tabs", "<all_urls>"],
+   "content_scripts": [
+     {
+       "run_at": "document_idle",
+       "matches" : ["https://*/*", "https://*/*"],
+       "js" : ["jquery-3.5.0.js", "popup.js", "require.js"]
+     }
+   ]
+}
